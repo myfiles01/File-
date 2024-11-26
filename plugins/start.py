@@ -93,11 +93,11 @@ async def start_command(client: Client, message: Message):
         reply_markup = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('⚡️ ᴍᴏᴠɪᴇs', url='https://telegram.me/Hindi_Dubbed_Movies_ST'),
-                    InlineKeyboardButton('🍁 sᴇʀɪᴇs', url='https://telegram.me/sitaratoons')
+                    InlineKeyboardButton('⚡️ ᴀɴɪᴍᴇ', url='https://telegram.me/Hindi_Dubbed_Movies_ST'),
+                    InlineKeyboardButton('🍁 ᴀɴɪᴍᴇ ᴍᴏᴠɪᴇ', url='https://telegram.me/sitaratoons')
                 ],
                 [
-                    InlineKeyboardButton('🍿.  ᴀɴɪᴍᴇ  .🚀', url='https://telegram.me/New_Anime_Hindi_dub_ST')
+                    InlineKeyboardButton('🍿 ᴀɴɪᴍᴇ ᴍᴏᴠɪᴇ  🚀', url='https://telegram.me/New_Anime_Hindi_dub_ST')
                 ]
             ]
         )
