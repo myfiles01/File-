@@ -13,12 +13,13 @@ from config import API_HASH, APP_ID, LOGGER, TG_BOT_TOKEN, TG_BOT_WORKERS, FORCE
 class Bot(Client):
     def __init__(self):
         super().__init__(
-            name="Bot",
+            name="filestorebot",
             api_hash=API_HASH,
             api_id=APP_ID,
             plugins={
                 "root": "plugins"
             },
+            sleep_threshold=5,
             workers=TG_BOT_WORKERS,
             bot_token=TG_BOT_TOKEN
         )
@@ -26,8 +27,13 @@ class Bot(Client):
 
     async def start(self):
         await super().start()
-        usr_bot_me = await self.get_me()
-        self.uptime = datetime.now()
+        me = await self.get_me()
+        self.mention = me.mention
+        self.username = me.username 
+        app = web.AppRunner(await web_server())
+        await app.setup()
+        bind_address = "0.0.0.0"
+        await web.TCPSite(app, bind_address, PORT).start()
 
         # Note => This is old method and it is not compatible with the latest telegram version (( YT or TG : @LazyDeveloperr ))
         # So replacing the force sub method with req to join feature 🚀 (( YT or TG : @LazyDeveloperr ))
@@ -59,25 +65,25 @@ class Bot(Client):
         #         self.LOGGER(__name__).info("\nBot Stopped. https://t.me/LazyDeveloper for support")
         #         sys.exit()
         
-        try:
-            db_channel = await self.get_chat(CHANNEL_ID)
-            self.db_channel = db_channel
-            test = await self.send_message(chat_id = db_channel.id, text = "Test Message")
-            await test.delete()
-        except Exception as e:
-            self.LOGGER(__name__).warning(e)
-            self.LOGGER(__name__).warning(f"Make Sure bot is Admin in DB Channel, and Double check the CHANNEL_ID Value, Current Value {CHANNEL_ID}")
-            self.LOGGER(__name__).info("\nBot Stopped. Join https://t.me/LazyDeveloper for support")
+        # try:
+        #     db_channel = await self.get_chat(CHANNEL_ID)
+        #     self.db_channel = db_channel
+        #     test = await self.send_message(chat_id = db_channel.id, text = "Test Message")
+        #     await test.delete()
+        # except Exception as e:
+        #     self.LOGGER(__name__).warning(e)
+        #     self.LOGGER(__name__).warning(f"Make Sure bot is Admin in DB Channel, and Double check the CHANNEL_ID Value, Current Value {CHANNEL_ID}")
+        #     self.LOGGER(__name__).info("\nBot Stopped. Join https://t.me/LazyDeveloper for support")
             # sys.exit() #if bot is admin & you are getting admin issue again and again then u can also remove this line of code 
 
-        self.set_parse_mode(ParseMode.HTML)
-        self.LOGGER(__name__).info(f"Bot Running..!\n\n❤ with love  \n ıllıllı⭐🌟 L͙a͙z͙y͙D͙e͙v͙e͙l͙o͙p͙e͙r͙r͙ 🌟⭐ıllıllı")
-        self.username = usr_bot_me.username
+        # self.set_parse_mode(ParseMode.HTML)
+        # self.LOGGER(__name__).info(f"Bot Running..!\n\n❤ with love  \n ıllıllı⭐🌟 L͙a͙z͙y͙D͙e͙v͙e͙l͙o͙p͙e͙r͙r͙ 🌟⭐ıllıllı")
+        # self.username = usr_bot_me.username
         #web-response
-        app = web.AppRunner(await web_server())
-        await app.setup()
-        bind_address = "0.0.0.0"
-        await web.TCPSite(app, bind_address, PORT).start()
+        # app = web.AppRunner(await web_server())
+        # await app.setup()
+        # bind_address = "0.0.0.0"
+        # await web.TCPSite(app, bind_address, PORT).start()
         print(f"""
  _____________________________________________   
 |                                             |  
