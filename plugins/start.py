@@ -94,10 +94,10 @@ async def start_command(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton('⚡️ ᴀɴɪᴍᴇ', url='https://telegram.me/sitaratoons'),
-                    InlineKeyboardButton('🍁 ᴋᴅʀᴀᴍᴀ', url='https://t.me/Hindi_Dub_k_Drama_ST')
+                    InlineKeyboardButton('🍁 ᴋᴅʀᴀᴍᴀ', url='https://telegram.me/Hindi_Dub_k_Drama_ST')
                 ],
                 [
-                    InlineKeyboardButton('🍿 ᴀɴɪᴍᴇ ᴍᴏᴠɪᴇ  🚀', url='https://t.me/+Zutr-hfuNeFhNWM9')
+                    InlineKeyboardButton('🍿 ᴀɴɪᴍᴇ ᴍᴏᴠɪᴇ 🚀', url='https://telegram.me/+Zutr-hfuNeFhNWM9')
                 ]
             ]
         )
