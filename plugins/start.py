@@ -97,7 +97,7 @@ async def start_command(client: Client, message: Message):
                     InlineKeyboardButton('🤩 Mᴀɪɴ Cʜᴀɴɴᴇʟ', url='https://t.me/Hwxanime')
                 ],
                 [
-                    InlineKeyboardButton('⚡ Bᴀᴄᴋᴜᴘ Cʜᴀɴɴᴇʟ ⚡', url='https://t.me/+2UkEl7RDvv43MWRl')
+                    InlineKeyboardButton('🤩 Oɴɢᴏɪɴɢ Aɴɪᴍᴇ 🔥', url='https://t.me/Hwx_Anime_Sub')
                 ]
             ]
         )
